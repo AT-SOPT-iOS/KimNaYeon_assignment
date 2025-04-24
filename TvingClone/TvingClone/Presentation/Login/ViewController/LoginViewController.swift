@@ -8,7 +8,11 @@
 import UIKit
 import SnapKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelegate {
+    func dataBind(id: String) {
+        idTextField.text = id
+    }
+    
     
     // MARK: - Property
     
@@ -80,6 +84,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         /// 테두리
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.gray4.cgColor
+        
+        button.addTarget(self, action: #selector(loginButtonDidTapped), for: .touchUpInside)
         return button
     }()
     
@@ -97,7 +103,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
-    // TODO: - 나중에 width=1, height=12 지정하기
     private lazy var separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.gray4
@@ -157,7 +162,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Stack
-    
     private func createHorizontalStackView(_ space: CGFloat, baselineAligned: Bool = false) -> UIStackView {
         let stack = UIStackView()
         stack.axis = .horizontal
@@ -250,18 +254,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Function
-    // 텍스트필드 포커스 진입 시
+    /// 텍스트필드 포커스 진입 시
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.gray2.cgColor
     }
 
-    // 텍스트필드 포커스 해제 시
+    /// 텍스트필드 포커스 해제 시
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 0
         textField.layer.borderColor = nil
     }
     
+    /// 버튼 활성화
     @objc private func textFieldsDidChange() {
         let isIdValid = !(idTextField.text ?? "").isEmpty
         let isPasswordValid = !(passwordTextField.text ?? "").isEmpty
@@ -283,4 +288,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     // MARK: - Button Action
+    private func pushToWelcomeVC(){
+        let welcomeViewController = WelcomeViewController()
+        welcomeViewController.delegete = self
+        welcomeViewController.id = idTextField.text
+        self.navigationController?.pushViewController(welcomeViewController, animated: true)
+    }
+    @objc
+    private func loginButtonDidTapped(){
+        pushToWelcomeVC()
+    }
 }
