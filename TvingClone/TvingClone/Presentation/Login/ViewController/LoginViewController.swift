@@ -73,8 +73,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelega
         textField.clipsToBounds = true
         
         /// 클리어 버튼
-        textField.setClearButton(with: UIImage(named: "DeleteIcon") ?? UIImage(systemName: "x.circle")!, mode: .whileEditing)
-        
+        textField.setPasswordRightButtons(mode: .whileEditing)
         return textField
     }()
     
