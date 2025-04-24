@@ -155,6 +155,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelega
         return button
     }()
     
+    /// 경고 문구
+    private lazy var warningLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.gray2
+        label.font = UIFont(name: "Pretendard-Regular", size: 12)
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        label.isHidden = true
+        return label
+    }()
+    
     // MARK: - Init
 
     override func viewDidLoad() {
@@ -205,7 +216,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelega
     
     /// 프로퍼티 추가 함수
     private func addProperty() {
-        [titleLabel, idTextField, passwordTextField, loginButton, findStack, createNicknameStack].forEach {
+        [titleLabel, idTextField, passwordTextField, loginButton, findStack, createNicknameStack, warningLabel].forEach {
             self.view.addSubview($0)
         }
     }
@@ -254,6 +265,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelega
             make.top.equalToSuperview().offset(423)
             make.centerX.equalToSuperview()
         }
+        
+        warningLabel.snp.makeConstraints{ make in
+            make.top.equalTo(loginButton.snp.bottom).offset(6)
+            make.left.equalTo(loginButton)
+            make.right.equalTo(loginButton)
+        }
     }
     
     // TODO: - 나중에 베이스뷰컨 만들기
@@ -277,9 +294,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelega
     
     /// 버튼 활성화
     @objc private func textFieldsDidChange() {
-        let isIdValid = !(idTextField.text ?? "").isEmpty
-        let isPasswordValid = !(passwordTextField.text ?? "").isEmpty
-        
+        let idText = idTextField.text ?? ""
+        let passwordText = passwordTextField.text ?? ""
+
+        let isIdValid = idText.isValidEmail
+        let isPasswordValid = passwordText.isValidPassword
+
+        if idText.isEmpty || passwordText.isEmpty {
+            warningLabel.isHidden = true
+        } else if !isIdValid {
+            warningLabel.isHidden = false
+            warningLabel.text = "올바른 이메일 형식을 입력해주세요."
+        } else if !isPasswordValid {
+            warningLabel.isHidden = false
+            warningLabel.text = "비밀번호는 특수문자를 포함한 8~12자여야 합니다."
+        } else {
+            warningLabel.isHidden = true
+        }
         UIView.animate(withDuration: 0.25) {
             if isIdValid && isPasswordValid {
                 self.loginButton.backgroundColor = UIColor.tvingRed
