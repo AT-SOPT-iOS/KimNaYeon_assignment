@@ -152,6 +152,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelega
         button.setUnderline()
         button.setTitleColor(UIColor.gray2, for: .normal)
         button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(showNicknameSheet), for: .touchUpInside)
         return button
     }()
     
@@ -334,8 +335,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelega
         welcomeViewController.id = idTextField.text
         self.navigationController?.pushViewController(welcomeViewController, animated: true)
     }
+    
     @objc
     private func loginButtonDidTapped(){
         pushToWelcomeVC()
+    }
+    
+    @objc
+    private func showNicknameSheet() {
+        let viewControllerToPresent = NicknameViewController()
+
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.detents = [.medium()]     // medium까지 허용
+            sheet.largestUndimmedDetentIdentifier = nil     // dim 항상 적용
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.preferredCornerRadius = 24
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true // false 기본값
+        }
+        present(viewControllerToPresent, animated: true, completion: nil)
     }
 }
