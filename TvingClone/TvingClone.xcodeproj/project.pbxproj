@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3305F3362DB94700004278EC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3305F3352DB94700004278EC /* SnapKit */; };
+		3305F3382DB94700004278EC /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 3305F3372DB94700004278EC /* SnapKit-Dynamic */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		3305F2EC2DB9384D004278EC /* TvingClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvingClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3305F3362DB94700004278EC /* SnapKit in Frameworks */,
+				3305F3382DB94700004278EC /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,8 @@
 			);
 			name = TvingClone;
 			packageProductDependencies = (
+				3305F3352DB94700004278EC /* SnapKit */,
+				3305F3372DB94700004278EC /* SnapKit-Dynamic */,
 			);
 			productName = TvingClone;
 			productReference = 3305F2EC2DB9384D004278EC /* TvingClone.app */;
@@ -107,6 +116,9 @@
 			);
 			mainGroup = 3305F2E32DB9384D004278EC;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3305F3342DB94700004278EC /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3305F2ED2DB9384D004278EC /* Products */;
 			projectDirPath = "";
@@ -331,6 +343,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3305F3342DB94700004278EC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3305F3352DB94700004278EC /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3305F3342DB94700004278EC /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		3305F3372DB94700004278EC /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3305F3342DB94700004278EC /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3305F2E42DB9384D004278EC /* Project object */;
 }
