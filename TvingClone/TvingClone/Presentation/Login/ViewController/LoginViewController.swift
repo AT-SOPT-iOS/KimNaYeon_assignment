@@ -57,6 +57,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelega
         textField.setPlaceholderColor(UIColor.gray2)
         textField.textColor = UIColor.gray2
         
+        textField.isSecureTextEntry = true
+        
         /// 패딩 설정
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: 0))
         textField.leftView = paddingView

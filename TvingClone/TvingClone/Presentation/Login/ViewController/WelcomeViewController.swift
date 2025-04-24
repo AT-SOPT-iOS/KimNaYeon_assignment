@@ -41,8 +41,8 @@ class WelcomeViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = UIColor.tvingRed
         button.setTitle("메인으로", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Pretendard-Regular", size: 18)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 14)
         button.addTarget(self, action: #selector(backToLoginButtonDidTap), for: .touchUpInside)
         
         /// 둥근 모서리
