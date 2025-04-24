@@ -152,6 +152,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         idTextField.delegate = self
         passwordTextField.delegate = self
+        idTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
     }
     
     // MARK: - Stack
@@ -258,6 +260,26 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 0
         textField.layer.borderColor = nil
+    }
+    
+    @objc private func textFieldsDidChange() {
+        let isIdValid = !(idTextField.text ?? "").isEmpty
+        let isPasswordValid = !(passwordTextField.text ?? "").isEmpty
+        
+        UIView.animate(withDuration: 0.25) {
+            if isIdValid && isPasswordValid {
+                self.loginButton.backgroundColor = UIColor.tvingRed
+                self.loginButton.setTitleColor(.white, for: .normal)
+                self.loginButton.layer.borderWidth = 0
+            } else {
+                self.loginButton.backgroundColor = UIColor.black
+                self.loginButton.setTitleColor(.gray2, for: .normal)
+                self.loginButton.layer.borderWidth = 1
+            }
+        }
+
+        loginButton.isEnabled = isIdValid && isPasswordValid
+        loginButton.layer.borderColor = (isIdValid && isPasswordValid) ? nil : UIColor.gray4.cgColor
     }
 
     // MARK: - Button Action
