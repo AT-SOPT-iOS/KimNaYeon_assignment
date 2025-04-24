@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Property
     
@@ -149,6 +149,9 @@ class LoginViewController: UIViewController {
         addStackProperty()
         addProperty()
         makeConstraints()
+        
+        idTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     // MARK: - Stack
@@ -244,6 +247,18 @@ class LoginViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    // MARK: - Function
+    // 텍스트필드 포커스 진입 시
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.gray2.cgColor
+    }
+
+    // 텍스트필드 포커스 해제 시
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.layer.borderWidth = 0
+        textField.layer.borderColor = nil
+    }
+
     // MARK: - Button Action
 }
-
