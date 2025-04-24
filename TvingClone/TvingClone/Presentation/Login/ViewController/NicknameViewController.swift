@@ -9,9 +9,9 @@ import UIKit
 import SnapKit
 
 class NicknameViewController: UIViewController {
+    weak var delegate: NicknameDelegate?
 
     // MARK: - Property
-    
     /// 닉네임 라벨
     private lazy var nicknameLabel: UILabel = {
         let label = UILabel()
@@ -58,6 +58,7 @@ class NicknameViewController: UIViewController {
         /// 둥근 모서리
         button.layer.cornerRadius = 12
         button.clipsToBounds = true
+        button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         
         return button
     }()
@@ -93,6 +94,20 @@ class NicknameViewController: UIViewController {
             make.right.equalToSuperview().offset(-20)
             make.height.greaterThanOrEqualTo(52)
             make.top.equalToSuperview().offset(359.19)
+        }
+    }
+    
+    // MARK: - Function
+    @objc private func saveButtonTapped() {
+        let nickname = nicknameTextField.text ?? ""
+        
+        if nickname.isKorean {
+            delegate?.nicknameDataBind(nickname)
+            self.dismiss(animated: true)
+        } else {
+            let alert = UIAlertController(title: "오류", message: "닉네임은 한글 또는 특수문자 포함 2~8자입니다.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default))
+            present(alert, animated: true)
         }
     }
 }

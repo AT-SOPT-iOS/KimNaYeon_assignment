@@ -11,11 +11,15 @@ import SnapKit
 protocol DataBindDelegate: AnyObject {
     func dataBind(id: String)
 }
+protocol NicknameDelegate: AnyObject {
+    func nicknameDataBind(_ nickname: String)
+}
 
 class WelcomeViewController: UIViewController {
     
     weak var delegete: DataBindDelegate?
     var id: String?
+    var nickname: String?
     
     // MARK: - Property
     private lazy var tvingImage: UIImageView = {
@@ -58,7 +62,8 @@ class WelcomeViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         addProperty()
         makeConstraints()
-        bindID()
+//        bindID()
+        bindNickname()
     }
     
     // MARK: - ConstraintsFuntion
@@ -95,6 +100,11 @@ class WelcomeViewController: UIViewController {
     private func bindID(){
         if let id{
             self.welcomLabel.text = "\(id)님 \n반가워요!"
+        }
+    }
+    private func bindNickname(){
+        if let nickname{
+            self.welcomLabel.text = "\(nickname)님 \n반가워요!"
         }
     }
     

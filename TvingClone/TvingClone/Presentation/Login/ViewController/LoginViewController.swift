@@ -8,14 +8,18 @@
 import UIKit
 import SnapKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelegate, NicknameDelegate {
+    func nicknameDataBind(_ nickname: String) {
+        self.nickname = nickname
+    }
+    
     func dataBind(id: String) {
         idTextField.text = id
     }
     
+    var nickname: String?
     
     // MARK: - Property
-    
     /// 제목
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -333,6 +337,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelega
         let welcomeViewController = WelcomeViewController()
         welcomeViewController.delegete = self
         welcomeViewController.id = idTextField.text
+        welcomeViewController.nickname = nickname
         self.navigationController?.pushViewController(welcomeViewController, animated: true)
     }
     
@@ -343,15 +348,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelega
     
     @objc
     private func showNicknameSheet() {
-        let viewControllerToPresent = NicknameViewController()
+        let nicknameViewController = NicknameViewController()
+        nicknameViewController.delegate = self
 
-        if let sheet = viewControllerToPresent.sheetPresentationController {
+        if let sheet = nicknameViewController.sheetPresentationController {
             sheet.detents = [.medium()]     // medium까지 허용
             sheet.largestUndimmedDetentIdentifier = nil     // dim 항상 적용
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
             sheet.preferredCornerRadius = 24
             sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true // false 기본값
         }
-        present(viewControllerToPresent, animated: true, completion: nil)
+        present(nicknameViewController, animated: true, completion: nil)
     }
 }
