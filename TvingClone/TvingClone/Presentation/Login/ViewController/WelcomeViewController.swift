@@ -53,6 +53,7 @@ class WelcomeViewController: UIViewController {
 
     // MARK: - Init
     override func viewDidLoad() {
+        view.self.backgroundColor = UIColor.black
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         addProperty()

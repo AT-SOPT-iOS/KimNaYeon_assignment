@@ -46,6 +46,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelega
         /// 둥근 모서리
         textField.layer.cornerRadius = 3
         textField.clipsToBounds = true
+        
+        /// 클리어 버튼
+        textField.setClearButton(with: UIImage(named: "DeleteIcon") ?? UIImage(systemName: "x.circle")!, mode: .whileEditing)
+
         return textField
     }()
     
@@ -67,6 +71,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelega
         /// 둥근 모서리
         textField.layer.cornerRadius = 3
         textField.clipsToBounds = true
+        
+        /// 클리어 버튼
+        textField.setClearButton(with: UIImage(named: "DeleteIcon") ?? UIImage(systemName: "x.circle")!, mode: .whileEditing)
+        
         return textField
     }()
     
