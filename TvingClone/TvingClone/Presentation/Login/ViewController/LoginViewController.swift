@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  TvingClone
 //
 //  Created by 김나연 on 4/24/25.
