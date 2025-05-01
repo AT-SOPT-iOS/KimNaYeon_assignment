@@ -15,7 +15,7 @@ class NicknameViewController: UIViewController {
     /// 닉네임 라벨
     private lazy var nicknameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.black
+        label.textColor = UIColor.blackT
         label.textAlignment = .left
         label.attributedText = NSAttributedString.pretendardStyled(
             "닉네임을 입력해주세요",
@@ -51,7 +51,7 @@ class NicknameViewController: UIViewController {
         let button = UIButton()
         button.contentVerticalAlignment = .center
         button.backgroundColor = UIColor.tvingRed
-        button.setTitleColor(UIColor.white, for: .normal)
+        button.setTitleColor(UIColor.whiteT, for: .normal)
         button.setTitle("저장하기", for: .normal)
         button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 14)
         
@@ -66,7 +66,7 @@ class NicknameViewController: UIViewController {
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.self.backgroundColor = UIColor.white
+        view.self.backgroundColor = UIColor.whiteT
         addProperty()
         makeConstraints()
     }

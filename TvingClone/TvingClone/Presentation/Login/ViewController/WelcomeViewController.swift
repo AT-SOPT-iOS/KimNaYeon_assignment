@@ -35,7 +35,7 @@ class WelcomeViewController: UIViewController {
             size: 23,
             weight: .bold
         )
-        label.textColor = UIColor.white
+        label.textColor = UIColor.whiteT
         label.numberOfLines = 2
         return label
     }()
@@ -45,7 +45,7 @@ class WelcomeViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = UIColor.tvingRed
         button.setTitle("메인으로", for: .normal)
-        button.setTitleColor(UIColor.white, for: .normal)
+        button.setTitleColor(UIColor.whiteT, for: .normal)
         button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 14)
         button.addTarget(self, action: #selector(backToLoginButtonDidTap), for: .touchUpInside)
         
@@ -57,7 +57,7 @@ class WelcomeViewController: UIViewController {
 
     // MARK: - Init
     override func viewDidLoad() {
-        view.self.backgroundColor = UIColor.black
+        view.self.backgroundColor = UIColor.blackT
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         addProperty()
