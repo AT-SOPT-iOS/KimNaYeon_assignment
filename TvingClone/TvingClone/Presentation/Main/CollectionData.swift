@@ -29,7 +29,7 @@ struct BaseballData {
     var image: UIImage
 }
 
-struct tvData {
+struct TvData {
     var image: UIImage
 }
 
@@ -89,13 +89,13 @@ extension BaseballData {
         ]
     }
 }
-extension tvData {
-    static func dummy() -> [tvData] {
+extension TvData {
+    static func dummy() -> [TvData] {
         return [
-            tvData(image: .tv1),
-            tvData(image: .tv2),
-            tvData(image: .tv3),
-            tvData(image: .tv4)
+            TvData(image: .tv1),
+            TvData(image: .tv2),
+            TvData(image: .tv3),
+            TvData(image: .tv4)
         ]
     }
 }
