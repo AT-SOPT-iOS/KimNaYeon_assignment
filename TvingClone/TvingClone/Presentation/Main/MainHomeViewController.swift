@@ -22,6 +22,9 @@ class MainHomeViewController: UIViewController {
                 animated: true
             )
             topTabBarView.setIndicatorBar(to: currentPageIndex)
+            if let scrollableViewController = viewControllers[currentPageIndex] as? HomeViewController {
+                scrollableViewController.scrollDelegate = self
+            }
         }
     }
     private let viewControllers: [UIViewController] = TopTabBarView.TopTabBarTitle.allCases.map { $0.viewController }
@@ -86,6 +89,9 @@ class MainHomeViewController: UIViewController {
     
     private func setStyle() {
         topTabBarView.delegate = self
+        if let scrollableViewController = viewControllers[currentPageIndex] as? HomeViewController {
+            scrollableViewController.scrollDelegate = self
+        }
     }
 }
 extension MainHomeViewController: TopTabBarViewDelegate {
@@ -113,5 +119,43 @@ extension MainHomeViewController: UIPageViewControllerDelegate, UIPageViewContro
 
         currentPageIndex = index
         topTabBarView.setIndicatorBar(to: index)
+    }
+}
+extension MainHomeViewController: ScrollSyncDelegate {
+    func didScroll(yOffset: CGFloat) {
+        if yOffset > 30, tvingNavigationBar.superview != nil {
+            tvingNavigationBar.removeFromSuperview()
+            view.insertSubview(placeholderView, at: 0)
+            placeholderView.snp.makeConstraints {
+                $0.top.equalTo(view.safeAreaLayoutGuide)
+                $0.leading.trailing.equalToSuperview()
+                $0.height.equalTo(45)
+            }
+            topTabBarView.snp.remakeConstraints {
+                $0.top.equalTo(placeholderView.snp.bottom)
+                $0.leading.trailing.equalToSuperview()
+                $0.height.equalTo(43)
+            }
+            UIView.animate(withDuration: 0.25) {
+                self.view.layoutIfNeeded()
+            }
+
+        } else if yOffset <= 0, tvingNavigationBar.superview == nil {
+            view.addSubview(tvingNavigationBar)
+            tvingNavigationBar.snp.makeConstraints {
+                $0.top.equalTo(view.safeAreaLayoutGuide)
+                $0.leading.trailing.equalToSuperview()
+                $0.height.equalTo(78)
+            }
+            placeholderView.removeFromSuperview()
+            topTabBarView.snp.remakeConstraints {
+                $0.top.equalTo(tvingNavigationBar.snp.bottom)
+                $0.leading.trailing.equalToSuperview()
+                $0.height.equalTo(43)
+            }
+            UIView.animate(withDuration: 0.25) {
+                self.view.layoutIfNeeded()
+            }
+        }
     }
 }
