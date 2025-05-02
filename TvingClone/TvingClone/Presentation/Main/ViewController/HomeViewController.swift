@@ -136,6 +136,13 @@ class HomeViewController: UIViewController {
         return collectionView
     }()
     
+    private lazy var pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.currentPage = 0
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        return pageControl
+    }()
+    
     private lazy var notificationView = NoticeView()
     
     private lazy var footerLabel = FooterLabel()
@@ -147,6 +154,7 @@ class HomeViewController: UIViewController {
         setLayout()
         scrollView.delegate = self
 //        addStackProperty()
+        pageControl.numberOfPages = best5Data.count
     }
     
 //    // MARK: - Stack
@@ -208,7 +216,8 @@ class HomeViewController: UIViewController {
             best5Label,
             best5CollectionView,
             notificationView,
-            footerLabel
+            footerLabel,
+            pageControl
         )
         contentView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -268,6 +277,10 @@ class HomeViewController: UIViewController {
             $0.top.equalTo(best5Label.snp.bottom).offset(13)
             $0.leading.trailing.equalToSuperview()
             $0.height.greaterThanOrEqualTo(90)
+        }
+        pageControl.snp.makeConstraints{
+            $0.centerY.equalTo(best5Label.snp.centerY)
+            $0.trailing.equalToSuperview().inset(4)
         }
         notificationView.snp.makeConstraints{
             $0.top.equalTo(best5CollectionView.snp.bottom).offset(23)
@@ -389,5 +402,10 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 extension HomeViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollDelegate?.didScroll(yOffset: scrollView.contentOffset.y)
+        if scrollView == best5CollectionView {
+            let pageWidth: CGFloat = 160
+            let currentPage = Int((scrollView.contentOffset.x + pageWidth * 1.5) / pageWidth)
+            pageControl.currentPage = currentPage
+        }
     }
 }
