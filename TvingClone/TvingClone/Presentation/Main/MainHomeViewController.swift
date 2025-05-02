@@ -88,47 +88,6 @@ class MainHomeViewController: UIViewController {
         topTabBarView.delegate = self
     }
 }
-//extension MainHomeViewController: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let offsetY = scrollView.contentOffset.y
-//
-//        if offsetY > 30, tvingNavigationBar.superview != nil {
-//            tvingNavigationBar.removeFromSuperview()
-//            view.insertSubview(placeholderView, at: 0)
-//            placeholderView.snp.makeConstraints {
-//                $0.top.equalTo(view.safeAreaLayoutGuide)
-//                $0.leading.trailing.equalToSuperview()
-//                $0.height.equalTo(45)
-//            }
-//            topTabBarView.snp.remakeConstraints {
-//                $0.top.equalTo(placeholderView.snp.bottom)
-//                $0.leading.trailing.equalToSuperview()
-//                $0.height.equalTo(43)
-//            }
-//            UIView.animate(withDuration: 0.25) {
-//                self.view.layoutIfNeeded()
-//            }
-//        }
-//
-//        else if offsetY <= 0, tvingNavigationBar.superview == nil {
-//            view.addSubview(tvingNavigationBar)
-//            tvingNavigationBar.snp.makeConstraints {
-//                $0.top.equalTo(view.safeAreaLayoutGuide)
-//                $0.leading.trailing.equalToSuperview()
-//                $0.height.equalTo(78)
-//            }
-//            placeholderView.removeFromSuperview()
-//            topTabBarView.snp.remakeConstraints {
-//                $0.top.equalTo(tvingNavigationBar.snp.bottom)
-//                $0.leading.trailing.equalToSuperview()
-//                $0.height.equalTo(43)
-//            }
-//            UIView.animate(withDuration: 0.25) {
-//                self.view.layoutIfNeeded()
-//            }
-//        }
-//    }
-//}
 extension MainHomeViewController: TopTabBarViewDelegate {
     func didTopTapBarTab(index: Int) {
         currentPageIndex = index

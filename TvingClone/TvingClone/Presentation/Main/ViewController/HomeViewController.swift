@@ -8,22 +8,19 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.self.backgroundColor = .red
-        // Do any additional setup after loading the view.
+    private lazy var whatIsYourNameImageView = UIImageView().then{
+        $0.image = UIImage(named: "WYN")
+    }
+    private lazy var todayTvingTOPLabel = UILabel().then{
+        $0.text = "오늘의 티빙 TOP 20"
+        $0.font = UIFont(name: "Pretendard-Bold", size: 15)
+        $0.textColor = .whiteT
+        $0.textAlignment = .left
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.self.backgroundColor = .blackT
+        // Do any additional setup after loading the view.
     }
-    */
-
 }
