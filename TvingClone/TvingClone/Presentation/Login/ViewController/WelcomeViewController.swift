@@ -47,7 +47,7 @@ class WelcomeViewController: UIViewController {
         button.setTitle("메인으로", for: .normal)
         button.setTitleColor(UIColor.whiteT, for: .normal)
         button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 14)
-        button.addTarget(self, action: #selector(backToLoginButtonDidTap), for: .touchUpInside)
+        button.addTarget(self, action: #selector(mainButtonDidTapped), for: .touchUpInside)
         
         /// 둥근 모서리
         button.layer.cornerRadius = 3
@@ -118,5 +118,11 @@ class WelcomeViewController: UIViewController {
         } else {
             self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    @objc
+    private func mainButtonDidTapped(){
+        let mainHomeViewController = MainHomeViewController()
+        self.navigationController?.pushViewController(mainHomeViewController, animated: true)
     }
 }
