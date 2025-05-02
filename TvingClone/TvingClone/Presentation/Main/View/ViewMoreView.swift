@@ -49,7 +49,7 @@ final class ViewMoreView: UIView {
         }
     }
 
-    // MARK: Function 나중에 23 헤이트 설정하기 희희
+    // MARK: Function
     func configure(title: String) {
         titleLabel.text = title
     }
