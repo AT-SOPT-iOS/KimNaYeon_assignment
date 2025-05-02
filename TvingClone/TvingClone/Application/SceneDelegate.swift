@@ -15,8 +15,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
+        let main = MainHomeViewController()
+        let navigationController = UINavigationController(rootViewController: main)
+        
         let loginViewController = LoginViewController()
-        let navigationController = UINavigationController(rootViewController: loginViewController) // 네비게이션 컨트롤러 추가
+//        let navigationController = UINavigationController(rootViewController: loginViewController) // 네비게이션 컨트롤러 추가
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = navigationController // 네비게이션 컨트롤러를 루트뷰로 설정
         window.makeKeyAndVisible()

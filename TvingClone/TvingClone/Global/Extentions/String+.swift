@@ -5,6 +5,7 @@
 //  Created by 김나연 on 4/24/25.
 //
 import Foundation
+import UIKit
 
 extension String {
     
@@ -27,5 +28,12 @@ extension String {
         let regularExpression = "^[가-힣ㄱ-ㅎㅏ-ㅣ!@#$%^&*()_+=\\-.]{2,8}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regularExpression)
         return predicate.evaluate(with: self)
+    }
+    
+    /// 폰트 사이즈 가져옴
+    func getTextContentSize(withFont font: UIFont) -> CGSize {
+        let attributes = [NSAttributedString.Key.font: font]
+        let size = (self as NSString).size(withAttributes: attributes)
+        return size
     }
 }

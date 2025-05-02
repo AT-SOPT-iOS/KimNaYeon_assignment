@@ -9,10 +9,14 @@ import UIKit
 import SnapKit
 import Then
 
+protocol TopTabBarViewDelegate: AnyObject {
+    func didTopTapBarTab(index: Int)
+}
 class TopTabBarView: UIView {
     
     final let tvingInterItemSpacing: CGFloat = 28
-    
+    weak var delegate: TopTabBarViewDelegate?
+
     enum TopTabBarTitle: String, CaseIterable {
         case home = "홈"
         case drama = "드라마"
@@ -25,6 +29,8 @@ class TopTabBarView: UIView {
             switch self {
             case .home:
                 return HomeViewController()
+            case .drama:
+                return DummyViewController()
             default:
                 return UIViewController()
             }
@@ -33,7 +39,7 @@ class TopTabBarView: UIView {
     
     private var targetIndex: Int = 0 {
         didSet {
-            
+            moveIndicator(targetIndex: targetIndex)
         }
     }
     
@@ -55,12 +61,24 @@ class TopTabBarView: UIView {
         $0.backgroundColor = .whiteT
     }
     
+    //MARK: - Init
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setLayout()
+        setStyle()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //MARK: - Set
     private func setStyle() {
         collectionView.do {
             $0.dataSource = self
             $0.delegate = self
-            $0.register(TopTabBarView.self, forCellWithReuseIdentifier: TopTabBarCollectionViewCell.identifier)
+            $0.register(TopTabBarCollectionViewCell.self, forCellWithReuseIdentifier: TopTabBarCollectionViewCell.identifier)
         }
     }
     private func setLayout() {
@@ -84,6 +102,10 @@ class TopTabBarView: UIView {
             $0.width.equalTo(15)
         }
     }
+    func setInitialIndicatorPosition() {
+        collectionView.layoutIfNeeded()
+        setIndicatorBar(to: 0)
+    }
 }
 extension TopTabBarView {
     func moveIndicator(targetIndex: Int) {
@@ -96,6 +118,9 @@ extension TopTabBarView {
             $0.height.equalTo(3)
             $0.bottom.equalTo(indicatorUnderlineView.snp.top)
         }
+        UIView.animate(withDuration: 0.25) {
+            self.layoutIfNeeded()
+        }
     }
     
     func setIndicatorBar(to targetIndex: Int) {
@@ -106,8 +131,24 @@ extension TopTabBarView {
         return self.targetIndex == currentIndex
     }
 }
-
 extension TopTabBarView: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        let cellCount = TopTabBarTitle.allCases.count
+        let spacing: CGFloat = tvingInterItemSpacing
+        let cellWidths = TopTabBarTitle.allCases.reduce(0) { total, tab in
+            let text = tab.rawValue
+            let width = text.getTextContentSize(withFont: UIFont(name: "Pretendard-Regular", size: 17)!).width
+            return total + width
+        }
+        
+        let totalSpacing = CGFloat(cellCount - 1) * spacing
+        let totalContentWidth = cellWidths + totalSpacing
+        let horizontalInset = max((collectionView.bounds.width - totalContentWidth) / 2, 0)
+        
+        return UIEdgeInsets(top: 0, left: horizontalInset, bottom: 0, right: horizontalInset)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return tvingInterItemSpacing
@@ -126,4 +167,11 @@ extension TopTabBarView: UICollectionViewDataSource {
             return cell
     }
     
+}
+extension TopTabBarView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let index = indexPath.item
+        self.targetIndex = index
+        delegate?.didTopTapBarTab(index: index)
+    }
 }
