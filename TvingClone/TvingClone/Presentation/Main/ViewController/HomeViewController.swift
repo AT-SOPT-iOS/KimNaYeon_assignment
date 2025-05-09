@@ -153,53 +153,10 @@ class HomeViewController: UIViewController {
         view.self.backgroundColor = .blackT
         setLayout()
         scrollView.delegate = self
-//        addStackProperty()
         pageControl.numberOfPages = best5Data.count
     }
     
-//    // MARK: - Stack
-//        
-//    /// 스택 중복 코드 생성
-//    private func createStackView(_ space: CGFloat) -> UIStackView {
-//        let stack = UIStackView()
-//        stack.axis = .vertical
-//        stack.distribution = .fill
-//        stack.spacing = space
-//        return stack
-//    }
-//    
-//    /// 오늘의 티빙
-//    private lazy var todayTvingStack: UIStackView = {
-//        return createStackView(9)
-//    }()
-//    /// 인기 라이브
-//    private lazy var popularityLiveStack: UIStackView = {
-//        return createStackView(9)
-//    }()
-//    /// 인기 영화
-//    private lazy var popularityMovieStack: UIStackView = {
-//        return createStackView(13)
-//    }()
-//    /// 인생작
-//    private lazy var best5Stack: UIStackView = {
-//        return createStackView(13)
-//    }()
-    
     // MARK: - Layout
-//    private func addStackProperty() {
-//        todayTvingStack.addArrangedSubview(todayTvingTOPLabel)
-//        todayTvingStack.addArrangedSubview(todayTivingTOPCollectionView)
-//        
-//        popularityLiveStack.addArrangedSubview(popularityLiveTitle)
-//        popularityLiveStack.addArrangedSubview(popularityLiveCollectionView)
-//        
-//        popularityMovieStack.addArrangedSubview(popularityMovieTitle)
-//        popularityMovieStack.addArrangedSubview(popularityMovieCollectionView)
-//        
-//        best5Stack.addArrangedSubview(best5Label)
-//        best5Stack.addArrangedSubview(best5CollectionView)
-//    }
-    
     private func setLayout() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)

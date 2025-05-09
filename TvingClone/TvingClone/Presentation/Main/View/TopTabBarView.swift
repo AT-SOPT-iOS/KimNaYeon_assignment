@@ -12,6 +12,7 @@ import Then
 protocol TopTabBarViewDelegate: AnyObject {
     func didTopTapBarTab(index: Int)
 }
+
 class TopTabBarView: UIView {
     
     final let tvingInterItemSpacing: CGFloat = 28
