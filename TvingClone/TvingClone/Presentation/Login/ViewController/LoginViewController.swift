@@ -23,7 +23,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelega
     /// 제목
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.white
+        label.textColor = .whiteT
         label.textAlignment = .center
         label.attributedText = NSAttributedString.pretendardStyled(
             "TVING ID 로그인",
@@ -175,7 +175,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, DataBindDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.self.backgroundColor = UIColor.black
+        view.self.backgroundColor = UIColor.blackT
         addStackProperty()
         addProperty()
         makeConstraints()
