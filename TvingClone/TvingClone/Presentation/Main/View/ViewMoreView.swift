@@ -10,7 +10,8 @@ import SnapKit
 import Then
 
 final class ViewMoreView: UIView {
-    
+    var onTapButton: (() -> Void)?
+
     // MARK: - Property
     private let titleLabel = UILabel().then {
         $0.font = UIFont(name: "Pretendard-Bold", size: 15)
@@ -21,6 +22,7 @@ final class ViewMoreView: UIView {
         $0.setTitle("더보기", for: .normal)
         $0.titleLabel?.font = UIFont(name: "Pretendard-Medium", size: 12)
         $0.setTitleColor(.gray2, for: .normal)
+        $0.addTarget(self, action: #selector(handleButtonTap), for: .touchUpInside)
     }
 
     // MARK: - Init
@@ -50,6 +52,11 @@ final class ViewMoreView: UIView {
     }
 
     // MARK: Function
+    @objc
+    private func handleButtonTap() {
+        onTapButton?()
+    }
+    
     func configure(title: String) {
         titleLabel.text = title
     }

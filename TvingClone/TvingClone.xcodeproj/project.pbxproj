@@ -42,6 +42,7 @@
 		33666B952DCB3A800018416D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33666B6F2DCB3A800018416D /* Assets.xcassets */; };
 		33666B962DCB3A800018416D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33666B702DCB3A800018416D /* Colors.xcassets */; };
 		33666B982DCB3A800018416D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33666B742DCB3A800018416D /* LaunchScreen.storyboard */; };
+		33675B0B2DCDD2E200418F1E /* MovieAPIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33675B0A2DCDD2E200418F1E /* MovieAPIViewController.swift */; };
 		339E8CF62DBCA4EA006952A7 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 339E8CF52DBCA4EA006952A7 /* Then */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		33666B702DCB3A800018416D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		33666B722DCB3A800018416D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33666B732DCB3A800018416D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		33675B0A2DCDD2E200418F1E /* MovieAPIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			children = (
 				33666B632DCB3A800018416D /* DummyViewController.swift */,
 				33666B642DCB3A800018416D /* HomeViewController.swift */,
+				33675B0A2DCDD2E200418F1E /* MovieAPIViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				33666B772DCB3A800018416D /* SceneDelegate.swift in Sources */,
 				33666B782DCB3A800018416D /* NSAttributedString+.swift in Sources */,
 				33666B792DCB3A800018416D /* String+.swift in Sources */,
+				33675B0B2DCDD2E200418F1E /* MovieAPIViewController.swift in Sources */,
 				33666B7A2DCB3A800018416D /* UIButton+.swift in Sources */,
 				33666B7B2DCB3A800018416D /* UICollectionViewCell+.swift in Sources */,
 				33666B7C2DCB3A800018416D /* UITextField+.swift in Sources */,
