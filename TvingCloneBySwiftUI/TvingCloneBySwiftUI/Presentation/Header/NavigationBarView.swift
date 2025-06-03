@@ -22,7 +22,7 @@ struct NavigationBarView: View {
                 }) {
                     VStack(spacing: 7) {
                         Text(navigationSegments[index])
-                            .foregroundColor(.whiteT)
+                            .foregroundStyle(.whiteT)
                             .font(.system(size: 16, weight: .medium))
 
                         ZStack {
