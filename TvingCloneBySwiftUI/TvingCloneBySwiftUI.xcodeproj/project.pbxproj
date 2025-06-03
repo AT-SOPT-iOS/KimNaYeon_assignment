@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3369A3DD2DEEDE150025F2AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3369A3D92DEEDE150025F2AD /* Assets.xcassets */; };
-		3369A3DE2DEEDE150025F2AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A3DA2DEEDE150025F2AD /* ContentView.swift */; };
+		3369A3DE2DEEDE150025F2AD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A3DA2DEEDE150025F2AD /* MainView.swift */; };
 		3369A3DF2DEEDE150025F2AD /* TvingCloneBySwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A3DB2DEEDE150025F2AD /* TvingCloneBySwiftUIApp.swift */; };
 		3369A3EE2DEEE0320025F2AD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A3ED2DEEE0320025F2AD /* HeaderView.swift */; };
 		3369A3F12DEEE2330025F2AD /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A3F02DEEE2330025F2AD /* NavigationBarView.swift */; };
@@ -18,12 +18,21 @@
 		3369A3FA2DEEEE2E0025F2AD /* BaseBallGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A3F92DEEEE2E0025F2AD /* BaseBallGridView.swift */; };
 		3369A3FC2DEEEE6F0025F2AD /* TVGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A3FB2DEEEE6F0025F2AD /* TVGridView.swift */; };
 		3369A3FE2DEEF01F0025F2AD /* MasterpieceOfKimghPDGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A3FD2DEEF01F0025F2AD /* MasterpieceOfKimghPDGridView.swift */; };
+		3369A4182DEEF31D0025F2AD /* TodayTopTwentyGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A4172DEEF31D0025F2AD /* TodayTopTwentyGridItemView.swift */; };
+		3369A41A2DEEF3310025F2AD /* RealTimePopularLIVEGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A4192DEEF3310025F2AD /* RealTimePopularLIVEGridItemView.swift */; };
+		3369A41C2DEEF3420025F2AD /* RealTimePopularMovieGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A41B2DEEF3420025F2AD /* RealTimePopularMovieGridItemView.swift */; };
+		3369A41F2DEEFF0C0025F2AD /* RealTimePopularLIVEGridModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A41E2DEEFF0C0025F2AD /* RealTimePopularLIVEGridModel.swift */; };
+		3369A4232DEF09F20025F2AD /* BaseBallGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A4222DEF09F20025F2AD /* BaseBallGridItemView.swift */; };
+		3369A4252DEF0E3F0025F2AD /* TVGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A4242DEF0E3F0025F2AD /* TVGridItemView.swift */; };
+		3369A4272DEF10B10025F2AD /* MasterpieceOfKimghPDGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A4262DEF10B10025F2AD /* MasterpieceOfKimghPDGridItemView.swift */; };
+		3369A4292DEF12D00025F2AD /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A4282DEF12D00025F2AD /* NotificationView.swift */; };
+		3369A42B2DEF15B10025F2AD /* ServiceInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A42A2DEF15B00025F2AD /* ServiceInformationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3369A3CB2DEEDC920025F2AD /* TvingCloneBySwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvingCloneBySwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3369A3D92DEEDE150025F2AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3369A3DA2DEEDE150025F2AD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3369A3DA2DEEDE150025F2AD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3369A3DB2DEEDE150025F2AD /* TvingCloneBySwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvingCloneBySwiftUIApp.swift; sourceTree = "<group>"; };
 		3369A3ED2DEEE0320025F2AD /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		3369A3F02DEEE2330025F2AD /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
@@ -33,6 +42,15 @@
 		3369A3F92DEEEE2E0025F2AD /* BaseBallGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBallGridView.swift; sourceTree = "<group>"; };
 		3369A3FB2DEEEE6F0025F2AD /* TVGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVGridView.swift; sourceTree = "<group>"; };
 		3369A3FD2DEEF01F0025F2AD /* MasterpieceOfKimghPDGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpieceOfKimghPDGridView.swift; sourceTree = "<group>"; };
+		3369A4172DEEF31D0025F2AD /* TodayTopTwentyGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTopTwentyGridItemView.swift; sourceTree = "<group>"; };
+		3369A4192DEEF3310025F2AD /* RealTimePopularLIVEGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimePopularLIVEGridItemView.swift; sourceTree = "<group>"; };
+		3369A41B2DEEF3420025F2AD /* RealTimePopularMovieGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimePopularMovieGridItemView.swift; sourceTree = "<group>"; };
+		3369A41E2DEEFF0C0025F2AD /* RealTimePopularLIVEGridModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimePopularLIVEGridModel.swift; sourceTree = "<group>"; };
+		3369A4222DEF09F20025F2AD /* BaseBallGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBallGridItemView.swift; sourceTree = "<group>"; };
+		3369A4242DEF0E3F0025F2AD /* TVGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVGridItemView.swift; sourceTree = "<group>"; };
+		3369A4262DEF10B10025F2AD /* MasterpieceOfKimghPDGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterpieceOfKimghPDGridItemView.swift; sourceTree = "<group>"; };
+		3369A4282DEF12D00025F2AD /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		3369A42A2DEF15B00025F2AD /* ServiceInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInformationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +100,10 @@
 		3369A3EC2DEEDE990025F2AD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				3369A3DA2DEEDE150025F2AD /* MainView.swift */,
 				3369A3EF2DEEE1EA0025F2AD /* Header */,
 				3369A3F22DEEED460025F2AD /* Grid */,
 				3369A3FF2DEEF02C0025F2AD /* Footer */,
-				3369A3DA2DEEDE150025F2AD /* ContentView.swift */,
 				3369A3DB2DEEDE150025F2AD /* TvingCloneBySwiftUIApp.swift */,
 			);
 			path = Presentation;
@@ -109,6 +127,8 @@
 				3369A3F92DEEEE2E0025F2AD /* BaseBallGridView.swift */,
 				3369A3FB2DEEEE6F0025F2AD /* TVGridView.swift */,
 				3369A3FD2DEEF01F0025F2AD /* MasterpieceOfKimghPDGridView.swift */,
+				3369A4162DEEF2DE0025F2AD /* GridItem */,
+				3369A41D2DEEFE9F0025F2AD /* GridModel */,
 			);
 			path = Grid;
 			sourceTree = "<group>";
@@ -116,8 +136,31 @@
 		3369A3FF2DEEF02C0025F2AD /* Footer */ = {
 			isa = PBXGroup;
 			children = (
+				3369A4282DEF12D00025F2AD /* NotificationView.swift */,
+				3369A42A2DEF15B00025F2AD /* ServiceInformationView.swift */,
 			);
 			path = Footer;
+			sourceTree = "<group>";
+		};
+		3369A4162DEEF2DE0025F2AD /* GridItem */ = {
+			isa = PBXGroup;
+			children = (
+				3369A4172DEEF31D0025F2AD /* TodayTopTwentyGridItemView.swift */,
+				3369A4192DEEF3310025F2AD /* RealTimePopularLIVEGridItemView.swift */,
+				3369A41B2DEEF3420025F2AD /* RealTimePopularMovieGridItemView.swift */,
+				3369A4222DEF09F20025F2AD /* BaseBallGridItemView.swift */,
+				3369A4242DEF0E3F0025F2AD /* TVGridItemView.swift */,
+				3369A4262DEF10B10025F2AD /* MasterpieceOfKimghPDGridItemView.swift */,
+			);
+			path = GridItem;
+			sourceTree = "<group>";
+		};
+		3369A41D2DEEFE9F0025F2AD /* GridModel */ = {
+			isa = PBXGroup;
+			children = (
+				3369A41E2DEEFF0C0025F2AD /* RealTimePopularLIVEGridModel.swift */,
+			);
+			path = GridModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,15 +236,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				3369A3FC2DEEEE6F0025F2AD /* TVGridView.swift in Sources */,
+				3369A4272DEF10B10025F2AD /* MasterpieceOfKimghPDGridItemView.swift in Sources */,
 				3369A3F42DEEEDBC0025F2AD /* TodayTopTwentyGridView.swift in Sources */,
-				3369A3DE2DEEDE150025F2AD /* ContentView.swift in Sources */,
+				3369A41A2DEEF3310025F2AD /* RealTimePopularLIVEGridItemView.swift in Sources */,
+				3369A3DE2DEEDE150025F2AD /* MainView.swift in Sources */,
 				3369A3FE2DEEF01F0025F2AD /* MasterpieceOfKimghPDGridView.swift in Sources */,
+				3369A4232DEF09F20025F2AD /* BaseBallGridItemView.swift in Sources */,
 				3369A3EE2DEEE0320025F2AD /* HeaderView.swift in Sources */,
 				3369A3F82DEEEE200025F2AD /* RealTimePopularMovieGridView.swift in Sources */,
 				3369A3F62DEEEE030025F2AD /* RealTimePopularLIVEGridView.swift in Sources */,
+				3369A4252DEF0E3F0025F2AD /* TVGridItemView.swift in Sources */,
+				3369A4182DEEF31D0025F2AD /* TodayTopTwentyGridItemView.swift in Sources */,
+				3369A41C2DEEF3420025F2AD /* RealTimePopularMovieGridItemView.swift in Sources */,
+				3369A41F2DEEFF0C0025F2AD /* RealTimePopularLIVEGridModel.swift in Sources */,
 				3369A3F12DEEE2330025F2AD /* NavigationBarView.swift in Sources */,
 				3369A3FA2DEEEE2E0025F2AD /* BaseBallGridView.swift in Sources */,
 				3369A3DF2DEEDE150025F2AD /* TvingCloneBySwiftUIApp.swift in Sources */,
+				3369A4292DEF12D00025F2AD /* NotificationView.swift in Sources */,
+				3369A42B2DEF15B10025F2AD /* ServiceInformationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
