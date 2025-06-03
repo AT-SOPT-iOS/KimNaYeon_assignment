@@ -62,6 +62,11 @@ class MainHomeViewController: UIViewController {
         )
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     private func setLayout() {
         view.addSubviews(
             tvingNavigationBar,
@@ -92,6 +97,10 @@ class MainHomeViewController: UIViewController {
         if let scrollableViewController = viewControllers[currentPageIndex] as? HomeViewController {
             scrollableViewController.scrollDelegate = self
         }
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        self.navigationItem.backBarButtonItem = backItem
     }
 }
 extension MainHomeViewController: TopTabBarViewDelegate {

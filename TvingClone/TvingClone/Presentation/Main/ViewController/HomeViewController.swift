@@ -75,6 +75,9 @@ class HomeViewController: UIViewController {
     /// 실시간 인기 영화
     private lazy var popularityMovieTitle = ViewMoreView().then {
         $0.configure(title: "실시간 인기 영화")
+        $0.onTapButton = { [weak self] in
+            self?.popularityMovieButtonTapped()
+        }
     }
     
     private lazy var popularityMovieCollectionView: UICollectionView = {
@@ -249,9 +252,16 @@ class HomeViewController: UIViewController {
             $0.leading.equalToSuperview().inset(20)
         }
     }
+    
+    //MARK: - Function
+    @objc
+    private func popularityMovieButtonTapped(){
+        let movieAPIViewControlleroller = MovieAPIViewController()
+        self.navigationController?.pushViewController(movieAPIViewControlleroller, animated: true)
+    }
 }
-// MARK: - Extension
 
+// MARK: - Extension
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView.tag {
